@@ -69,6 +69,14 @@ describe('configuration', function () {
             });
             configuration.set('eventKey', 'new value');
         });
+
+	    it('should merge array values on set', function(done){
+		    configuration.set('array_data', [1,2,3]);
+		    configuration.set('array_data', [4,5,6]);
+		  //  console.log('array data:', configuration.get('array_data'));
+		    configuration.get('array_data').should.eql([1,2,3,4,5,6]);
+
+	    })
     });
 
     describe('#remove()', function () {

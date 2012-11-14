@@ -5,13 +5,14 @@ Configuration
 Light-Weight module for node.js to help you to configure your node.js module(s) or
 administer your settings.
 
+__warning__: this branch of configuration has a small but significant difference: setting object or array values
+to a field with existing values of the same type will produce in a union of the data.
 Installation
 ============
 
 ```
-npm install configuration
+npm install hive-configuration
 ```
-
 
 Usage
 =====
