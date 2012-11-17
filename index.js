@@ -1,6 +1,7 @@
 var util = require('util');
 var EventEmitter = require('events').EventEmitter;
 var underscore = require('underscore');
+var _ = underscore;
 
 var Configuration = function Configuration(defaults) {
     "use strict";
@@ -10,7 +11,14 @@ var Configuration = function Configuration(defaults) {
 };
 util.inherits(Configuration, EventEmitter);
 
-Configuration.prototype.set = function set(key, value) {
+Configuration.prototype.add = function(obj){
+	var self = this;
+	_.each(obj, function(val, key){
+		self.set(key, val);
+	})
+}
+
+Configuration.prototype.set = function set(key, value, replace) {
     "use strict";
     var event;
     var ret = this;
@@ -19,6 +27,13 @@ Configuration.prototype.set = function set(key, value) {
     } else {
         event = 'set';
     }
+	if ((!replace) && this.data[key]){
+		if (_.isArray(value) && _.isArray(this.data[key])){
+			value = this.data[key].concat(value);
+		} else if (_.isObject(value) && _.isObject(this.data[key])){
+			_.defaults(value, this.data[key]);
+		}
+	}
     this.data[key] = value;
     this.emit(event, key, this.data[key]);
     this.emit(event + ':' + key, this.data[key]);
