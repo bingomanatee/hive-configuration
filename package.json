@@ -1,7 +1,7 @@
 {
 	"author":               "Dave Edelhart",
 	"name":                 "hive-configuration",
-	"description":          "Simple light-weight configuration and setting module extending EventEmitter; branched from configuration, by Thomas Fritz <fritztho@gmail.com>",
+	"description":          "Simple light-weight configuration and setting module extending EventEmitter; branched from configuration (Thomas Fritz <fritztho@gmail.com>)",
 	"version":              "0.0.1",
 	"homepage":             "https://github.com/thomasfr/node-configuration",
 	"scripts":              {
