@@ -11,7 +11,7 @@ var Configuration = function Configuration(defaults) {
 util.inherits(Configuration, EventEmitter);
 
 Configuration.prototype.valueOf = function(){
-	return underscore.clone(data);
+	return underscore.clone(this.data);
 }
 
 Configuration.prototype.set = function set(key, value, replace) {
@@ -76,7 +76,7 @@ Configuration.prototype.reset = function reset() {
 
 Configuration.prototype.has = function has(key) {
     "use strict";
-    return this.data[key] ? true : false;
+    return this.data.hasOwnProperty(key);
 };
 
 Configuration.prototype.setAll = function setAll(config) {

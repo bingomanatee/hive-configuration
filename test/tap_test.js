@@ -13,3 +13,13 @@ tap.test('merging properties', function(t){
 
 	t.end();
 })
+
+tap.test('has', function(t){
+
+	var config = new Config({a: 1, b: 0});
+
+	t.ok(config.has('a'), 'has a');
+	t.ok(config.has('b'), 'has b');
+	t.ok(!config.has('c'), 'doesnot have c');
+	t.end();
+})
