@@ -21,5 +21,6 @@ tap.test('has', function(t){
 	t.ok(config.has('a'), 'has a');
 	t.ok(config.has('b'), 'has b');
 	t.ok(!config.has('c'), 'doesnot have c');
+	t.equals(config.get('b'), 0, 'b == 0');
 	t.end();
 })

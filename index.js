@@ -38,7 +38,7 @@ Configuration.prototype.set = function set(key, value, replace) {
 
 Configuration.prototype.get = function get(key) {
     "use strict";
-    return this.data[key] || null;
+    return this.has(key) ? this.data[key] : null;
 };
 
 Configuration.prototype.remove = function remove(key) {
